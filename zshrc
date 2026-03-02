@@ -49,3 +49,7 @@ nix-load() {
   done
 }
 
+if [ -e $HOME/.zshrc.user ]; then
+  source $HOME/.zshrc.user
+fi
+
