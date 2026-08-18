@@ -59,5 +59,6 @@ ninja-monitor() {
   while true; do
     ninja -t inputs | inotifywait -e modify -e create -e delete --fromfile - build.ninja;
     ninja;
+    sleep 0.5; # throttle
   done
 }
