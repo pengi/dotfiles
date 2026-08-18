@@ -55,3 +55,9 @@ if [ -e $HOME/.zshrc.user ]; then
   source $HOME/.zshrc.user
 fi
 
+ninja-monitor() {
+  while true; do
+    ninja -t inputs | inotifywait -e modify -e create -e delete --fromfile - build.ninja;
+    ninja;
+  done
+}
